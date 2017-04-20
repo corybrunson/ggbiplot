@@ -1,9 +1,8 @@
-GeomAxis <- proto(ggplot2:::Geom, {
-  objname <- "axis"
+GeomAxis <- ggproto("GeomAxis", Geom, 
 
-  default_stat <- function(.) StatIdentity
-  required_aes <- c("x", "y")
-  default_aes <- function(.) aes(
+  default_stat = function(.) StatIdentity,
+  required_aes = c("x", "y"),
+  default_aes = aes(
     xbegin = 0, 
     ybegin = 0, 
     colour = "#832424FF", 
@@ -15,14 +14,14 @@ GeomAxis <- proto(ggplot2:::Geom, {
     family = "",
     fontface = 1,
     lineheight = 1.2
-  )
-  guide_geom <- function(.) "segment"
+  ),
+  guide_geom = function(.) "segment",
 
-  draw <- function(., data, scales, coordinates, arrow, ...) {
+  draw_panel = function(data, scales, coordinates, arrow, ...) {
 
     if (empty(data)) return(zeroGrob())
 
-    if (!is.linear(coordinates)) {
+    if (!coordinates$is_linear()) {
       warning("geom_axis does not work properly with non-linear coordinates.")
     }
 
@@ -43,7 +42,7 @@ GeomAxis <- proto(ggplot2:::Geom, {
       ggbiplot:::GeomVector$draw(vec, scales, coordinates, arrow = arrow)
     )
   }
-})
+)
 
 #' Axis arrows with optional text labels.
 #'
@@ -52,7 +51,6 @@ GeomAxis <- proto(ggplot2:::Geom, {
 geom_axis <- function (mapping = NULL, data = NULL, stat = "identity",
   position = "identity", arrow = grid::arrow(length = unit(1/3, "picas")), 
   ...) {
-
-  GeomAxis$new(mapping = mapping, data = data, stat = stat,
-    position = position, arrow = arrow, ...)
+  layer(mapping = mapping, data = data, stat = stat, geom = GeomAxis,
+    position = position, params = list(arrow = arrow, ...))
 }

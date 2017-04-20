@@ -1,19 +1,18 @@
-GeomVector <- proto(ggplot2:::Geom, {
-  objname <- "vector"
+GeomVector <- ggproto("GeomVector", Geom,
 
-  default_stat <- function(.) StatIdentity
-  required_aes <- c("x", "y")
-  default_aes <- function(.) aes(
+  default_stat = function(.) StatIdentity,
+  required_aes = c("x", "y"),
+  default_aes = aes(
     xbegin = 0, 
     ybegin = 0, 
     colour = "black", 
     size = 0.5, 
     linetype = 1, 
     alpha = NA
-  )
-  guide_geom <- function(.) "segment"
+  ),
+  guide_geom = function(.) "segment",
 
-  draw <- function(., data, scales, coordinates, 
+  draw_panel = function(data, scales, coordinates, 
     arrow = grid::arrow(length = unit(1/3, "picas")), ...) {
 
     if (empty(data)) return(zeroGrob())
@@ -29,7 +28,7 @@ GeomVector <- proto(ggplot2:::Geom, {
 
     GeomSegment$draw(segment, scales, coordinates, arrow = arrow)
   }
-})
+)
 
 #' Arrows
 #'
@@ -38,6 +37,6 @@ GeomVector <- proto(ggplot2:::Geom, {
 geom_vector <- function (mapping = NULL, data = NULL, stat = "identity",
   position = "identity", arrow = grid::arrow(length = unit(1/3, "picas")), ...) {
 
-  GeomVector$new(mapping = mapping, data = data, stat = stat,
-    position = position, arrow = arrow, ...)
+  layer(mapping = mapping, data = data, stat = stat, geom = GeomVector,
+    position = position, params = list(arrow = arrow, ...))
 }

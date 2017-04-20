@@ -76,9 +76,9 @@ ggbiplot <- function(pcobj, choices = 1:2, scale = 1, pc.biplot = TRUE,
   u$group <- if(!is.null(groups)) groups else NA
 
   v$name <- if(varname.abbrev) {
-    abbreviate(attr(df, "basis")$name) 
+    abbreviate(attr(df, "basis")$.name) 
   } else {
-    attr(df, "basis")$name
+    attr(df, "basis")$.name
   }
 
   # Base plot

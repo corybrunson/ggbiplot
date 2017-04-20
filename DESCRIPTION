@@ -9,13 +9,12 @@ Description: A ggplot2 based biplot.  It provides a drop-in
     replacement for biplot.princomp(). It implements a
     biplot and scree plot using ggplot2.
 Depends:
-    ggplot2 (>= 1.0.0)
+    ggplot2 (>= 2.0.0)
 Imports:
     grid,
-    plyr,
-    proto,
     scales
 Enhances:
     FactoMineR, MASS
 License: GPL-2
 URL: http://github.com/vqv/ggbiplot
+RoxygenNote: 6.0.1
