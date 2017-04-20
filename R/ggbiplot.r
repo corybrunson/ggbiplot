@@ -69,7 +69,7 @@ ggbiplot <- function(pcobj, choices = 1:2, scale = 1, pc.biplot = TRUE,
 
   # Scale directions
   v_scale <- r / sqrt(max(rowSums(v^2)))
-
+  v <- v * v_scale
   uname <- names(df)[choices]
 
   u$label <- if(!is.null(labels)) labels else NA
@@ -88,8 +88,7 @@ ggbiplot <- function(pcobj, choices = 1:2, scale = 1, pc.biplot = TRUE,
   # Draw biplot axes
   if(var.axes) {
     g <- g + geom_axis(data = v, aes(label = name), 
-                       textsize = varname.size, 
-                       scale = v_scale)
+                       textsize = varname.size)
   }
 
   # Draw points or labels

@@ -26,7 +26,7 @@ GeomVector <- ggproto("GeomVector", Geom,
       xbegin = NULL, ybegin = NULL
     )
 
-    GeomSegment$draw_panel(segment, panel_params, coordinates)
+    GeomSegment$draw_panel(segment, panel_params, coordinates, arrow = arrow)
   }
 )
 

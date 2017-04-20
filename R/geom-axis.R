@@ -39,7 +39,7 @@ GeomAxis <- ggproto("GeomAxis", Geom,
         )
         GeomText$draw_panel(text, scales, coordinates)
       },
-      ggbiplot:::GeomVector$draw_panel(vec, scales, coordinates, arrow = arrow)
+      ggbiplot:::GeomVector$draw_panel(vec, scales, coordinates)
     )
   }
 )
