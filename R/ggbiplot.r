@@ -89,7 +89,7 @@ ggbiplot <- function(pcobj, choices = 1:2, scale = 1, pc.biplot = TRUE,
   if(var.axes) {
     g <- g + geom_axis(data = v, aes(label = name), 
                        textsize = varname.size, 
-                       circle = circle, scale = v_scale)
+                       scale = v_scale)
   }
 
   # Draw points or labels

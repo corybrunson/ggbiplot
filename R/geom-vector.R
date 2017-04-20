@@ -12,7 +12,7 @@ GeomVector <- ggproto("GeomVector", Geom,
   ),
   guide_geom = function(.) "segment",
 
-  draw_panel = function(data, scales, coordinates, 
+  draw_panel = function(data, panel_params, coordinates, 
     arrow = grid::arrow(length = unit(1/3, "picas")), ...) {
 
     if (empty(data)) return(zeroGrob())
@@ -26,7 +26,7 @@ GeomVector <- ggproto("GeomVector", Geom,
       xbegin = NULL, ybegin = NULL
     )
 
-    GeomSegment$draw(segment, scales, coordinates, arrow = arrow)
+    GeomSegment$draw_panel(segment, panel_params, coordinates)
   }
 )
 
