@@ -28,7 +28,7 @@
 #'   wine.pca <- prcomp(wine, scale. = TRUE)
 #'   print(ggscreeplot(wine.pca))
 #'
-ggscreeplot <- function(pcobj, type = c('pev', 'cev')) 
+ggscreeplot <- function(pcobj, type = c('pev', 'cev'), line = FALSE) 
 {
   type <- match.arg(type)
   d <- pcobj$sdev^2
@@ -37,12 +37,17 @@ ggscreeplot <- function(pcobj, type = c('pev', 'cev'))
                  cev = cumsum(d) / sum(d))
 
   yvar.lab <- switch(type,
-                     pev = 'proportion of explained variance',
-                     cev = 'cumulative proportion of explained variance')
+                     pev = 'Proportion of explained variance',
+                     cev = 'Cumulative proportion of explained variance')
 
   df <- data.frame(PC = 1:length(d), yvar = yvar)
 
-  ggplot(data = df, aes(x = PC, y = yvar)) + 
-    xlab('principal component number') + ylab(yvar.lab) +
-    geom_point() + geom_path()
+  g <- ggplot(data = df, aes(x = PC, y = yvar)) + 
+    labs(x = 'Principal component number', y = yvar.lab) 
+
+    if(line){
+      g + geom_point() + geom_path()
+    } else{
+      g + geom_col()
+    }
 }
