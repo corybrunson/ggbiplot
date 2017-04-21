@@ -22,6 +22,7 @@
 #'
 #' @param pcobj          an object returned by prcomp() or princomp()
 #' @param type           the type of scree plot.  'pev' corresponds proportion of explained variance, i.e. the eigenvalues divided by the trace. 'cev' corresponds to the cumulative proportion of explained variance, i.e. the partial sum of the first k eigenvalues divided by the trace.
+#' @param line logical; line plot or barplot
 #' @export
 #' @examples
 #'   data(wine)

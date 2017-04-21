@@ -4,12 +4,14 @@
 \alias{ggscreeplot}
 \title{Screeplot for Principal Components}
 \usage{
-ggscreeplot(pcobj, type = c("pev", "cev"))
+ggscreeplot(pcobj, type = c("pev", "cev"), line = FALSE)
 }
 \arguments{
 \item{pcobj}{an object returned by prcomp() or princomp()}
 
 \item{type}{the type of scree plot.  'pev' corresponds proportion of explained variance, i.e. the eigenvalues divided by the trace. 'cev' corresponds to the cumulative proportion of explained variance, i.e. the partial sum of the first k eigenvalues divided by the trace.}
+
+\item{line}{logical; line plot or barplot}
 }
 \description{
 Screeplot for Principal Components
