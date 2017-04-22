@@ -4,10 +4,10 @@
 # Copyright 2014 Vincent Q. Vu. All rights reserved
 # 
 
-#' ggbiplot
+#' ggbiplot-package
 #'
 #' @import ggplot2 grid scales
-#' @name ggbiplot
+#' @name ggbiplot-package
 #' @docType package
 NULL
 #' @title Wine dataset
