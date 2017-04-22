@@ -1,8 +1,8 @@
 Package: ggbiplot
 Type: Package
 Title: A ggplot2 based biplot
-Version: 0.55
-Date: 2011-10-23
+Version: 0.6
+Date: 2017-4-22
 Author: Vincent Q. Vu <vqv@stat.osu.edu>
 Maintainer: Vincent Q. Vu <vqv@stat.osu.edu>
 Description: A ggplot2 based biplot.  It provides a drop-in
@@ -12,7 +12,8 @@ Depends:
     ggplot2 (>= 2.0.0)
 Imports:
     grid,
-    scales
+    scales,
+    plyr
 Enhances:
     FactoMineR, MASS
 License: GPL-2
