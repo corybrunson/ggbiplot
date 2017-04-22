@@ -1,18 +1,18 @@
 # ggbiplot
 
-This experimental branch of ggbiplot is a complete overhaul of the existing 
-ggbiplot package.  It adds several new geoms and fortify methods that allow 
+This experimental branch of ggbiplot is a complete overhaul of the existing
+ggbiplot package.  It adds several new geoms and fortify methods that allow
+
 biplots to be constructed in a more ggplot2-like manner.  It is currently 
 under development so its documentation is sparse and the interface and 
 behavior are likely to change.  
 
 ## Installation
 ```R
-library(devtools)
-install_github("vqv/ggbiplot", ref = "experimental")
+devtools::install_github("richardjtelford/ggbiplot", ref = "experimental")
 ```
 
-The package has several dependencies, including version >= 1.0.0 of ggplot2.  Check the DESCRIPTION file and make sure you have the correct versions of the dependencies installed.
+The package has several dependencies, including version >= 2.0.0 of ggplot2.  Check the DESCRIPTION file and make sure you have the correct versions of the dependencies installed.
 
 ## Design
 The new design factors the functionality of the original ggbiplot() function into separate parts.  The basic scheme for constructing a biplot is as follows:
@@ -21,7 +21,7 @@ The new design factors the functionality of the original ggbiplot() function int
 2. Convert the dimension reduction object into a data frame that can be used for plotting using the `fortify()` method.  This method returns a data frame containing the projections of the data (scores) with the attribute `basis` set equal to a matrix the loadings (or basis vectors for the projection).
 3. Use `ggplot2` to produce a basic plot, e.g. a principal components score plot, from the fortified dimension reduction object.
 4. Promote the basic plot to biplot by adding an additional biplot axes layer using `geom_axis()` (provided by ggbiplot).
-5. Additional embellishments such as circles and ellipses can be added using `geom_circle()` (provided by ggbiplot) and `stat_ellipse()` (provided by ggplot versions >=1.0.0).
+5. Additional embellishments such as circles and ellipses can be added using `geom_circle()` (provided by ggbiplot) and `stat_ellipse()` (provided by ggplot versions >=2.0.0).
 
 
 ## Examples
