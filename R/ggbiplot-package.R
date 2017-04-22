@@ -7,6 +7,7 @@
 #' ggbiplot-package
 #'
 #' @import ggplot2 grid scales
+#' @importFrom plyr empty
 #' @name ggbiplot-package
 #' @docType package
 NULL
