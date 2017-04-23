@@ -17,7 +17,7 @@ GeomAxis <- ggproto("GeomAxis", Geom,
   ),
   guide_geom = function(.) "segment",
 
-  draw_panel = function(data, scales, coordinates, arrow, ...) {
+  draw_panel = function(data, scales, coordinates, arrow, parse = FALSE) {
 
     if (empty(data)) return(zeroGrob())
 
@@ -37,7 +37,7 @@ GeomAxis <- ggproto("GeomAxis", Geom,
           hjust = 0.5 * (1 - 1.25 * sign(x)),
           vjust = 0.5
         )
-        GeomText$draw_panel(text, scales, coordinates)
+        GeomText$draw_panel(text, scales, coordinates, parse)
       },
       ggbiplot:::GeomVector$draw_panel(vec, scales, coordinates)
     )
